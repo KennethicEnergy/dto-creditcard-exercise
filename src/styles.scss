@@ -1,0 +1,157 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "src/assets/styles/variables.scss";
+
+body {
+  background: #f5f5f5;
+
+  .top-nav {
+    height: 2rem;
+    background-color: $primary;
+  }
+
+  .checkout {
+    .header {
+      height: 5rem;
+      color: $primary;
+      font-size: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 0 auto;
+      background-color: #ffffff;
+
+      h3 {
+        align-self: flex-start;
+        padding-left: 16px;
+        font-weight: 400;
+      }
+    }
+
+    .address-wrapper {
+      margin: $wrapper-margin;
+      background-color: #ffffff;
+
+      .address-top-bar {
+        height: 0.1875rem;
+        width: 100%;
+        background-position-x: -1.875rem;
+        background-size: 7.25rem 0.1875rem;
+        background-image: repeating-linear-gradient(
+          45deg,
+          rgb(111, 166, 214),
+          rgb(111, 166, 214) 33px,
+          transparent 0px,
+          transparent 41px,
+          rgb(241, 141, 155) 0px,
+          rgb(241, 141, 155) 74px,
+          transparent 0px,
+          transparent 82px
+        );
+      }
+
+      .address-header {
+        color: $primary;
+
+        .address-header-text {
+          font-weight: 400;
+          padding: 16px;
+        }
+      }
+    }
+
+    .product-list-wrapper {
+      margin: $wrapper-margin;
+      background-color: #ffffff;
+
+      .product-list-header {
+        padding: 16px;
+        .product-list-header-text {
+          color: $primary;
+          font-weight: 400;
+          margin: 0;
+
+          &.title {
+            color: $primary;
+          }
+          &.text {
+            color: gray;
+          }
+        }
+      }
+
+      .product-list {
+        .product-detail {
+          .product-img {
+            background-color: $primary;
+            height: 60px;
+            width: 60px;
+          }
+
+          .product-name {
+            padding: 0 16px;
+            font-weight: 500;
+          }
+        }
+      }
+
+      .order-total {
+        float: right;
+      }
+    }
+
+    .payment-option-wrapper {
+      margin: $wrapper-margin;
+      background-color: #ffffff;
+
+      .payment-option-header {
+        padding: 16px;
+        .payment-option-header-text {
+          color: $primary;
+          font-weight: 400;
+          padding: 8px;
+          margin: 0;
+        }
+        .selected {
+          width: fit-content;
+          margin: 0 8px;
+          padding: 8px;
+          border: 1px solid $primary;
+          color: $primary;
+          cursor: pointer;
+        }
+
+        .select {
+          width: fit-content;
+          margin: 0 8px;
+          padding: 8px;
+          border: 1px solid#d8d8d8;
+          color: #d8d8d8;
+          cursor: not-allowed;
+        }
+      }
+
+      .payment-variation {
+        padding: 16px;
+        height: 22rem;
+
+        .add-card-btn {
+          background-color: $primary;
+          border-radius: 5px;
+          color: #ffffff;
+          border: 1px solid $primary;
+          padding: 8px;
+          margin: 8px;
+
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+
+      .view-title {
+        padding: 0 16px;
+      }
+    }
+  }
+}
