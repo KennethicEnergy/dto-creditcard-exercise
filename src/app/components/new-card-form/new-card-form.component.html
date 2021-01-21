@@ -1,0 +1,58 @@
+<div class="creditCardForm">
+  <div class="heading">
+    <h1>Add Card</h1>
+  </div>
+  <div class="payment">
+    <form [formGroup]="creditCardForm">
+      <div class="form-group owner">
+        <label for="owner">Card Holder</label>
+        <input type="text" class="form-control" id="owner" formControlName="cardHolder">
+        <div class="form-control-errors" *ngIf="creditCardFormDefaultValidators('cardHolder')">
+          <span class="error-msg" *ngIf="creditCardForm.get('cardHolder').errors.required">Card holder is required.</span>
+        </div>
+      </div>
+      <div class="form-group cvv">
+        <label for="cvv">CVV</label>
+        <input type="text" class="form-control" id="cvv" formControlName="securityCode">
+        <div class="form-control-errors" *ngIf="creditCardFormDefaultValidators('securityCode')">
+          <span class="error-msg" *ngIf="creditCardForm.get('securityCode').errors.required">CVV is required.</span>
+          <span class="error-msg" *ngIf="creditCardForm.get('securityCode').errors.pattern">CVV should be 3 digits.</span>
+        </div>
+      </div>
+      <div class="form-group" id="card-number-field">
+        <label for="cardNumber">Card Number</label>
+        <input type="text" class="form-control" id="cardNumber"  formControlName="cardNumber">
+        <div class="form-control-errors" *ngIf="creditCardFormDefaultValidators('cardNumber')">
+          <span class="error-msg" *ngIf="creditCardForm.get('cardNumber').errors.required">Card number is required.</span>
+          <span class="error-msg" *ngIf="creditCardForm.get('cardNumber').errors.pattern">Card number accepts number only.</span>
+        </div>
+      </div>
+      <div class="form-group expiration-date" id="expiration-date">
+        <label>Expiration Date</label>
+        <input class="form-control" type="month" id="expirationDate" min="2021-01" formControlName="expirationDate">
+        <div class="form-control-errors" *ngIf="creditCardFormDefaultValidators('expirationDate')">
+          <span class="error-msg" *ngIf="creditCardForm.get('expirationDate').errors.required">Expiration date is required.</span>
+          <span class="error-msg" *ngIf="creditCardForm.get('expirationDate').errors.lessThanCurrentDate">Expiration date should be greater than current date</span>
+        </div>
+      </div>
+      <div class="form-group amount" id="amount">
+        <label>Amount</label>
+        <input class="form-control" type="text" id="amount" formControlName="amount">
+        <div class="form-control-errors" *ngIf="creditCardFormDefaultValidators('amount')">
+          <span class="error-msg" *ngIf="creditCardForm.get('amount').errors.required">Amount is required.</span>
+          <span class="error-msg" *ngIf="creditCardForm.get('amount').errors.lessThanZero">Amount should be greater than 0.</span>
+          <span class="error-msg" *ngIf="creditCardForm.get('amount').errors.lessThanZero">Amount accepts number only.</span>
+        </div>
+      </div>
+      <div class="form-group" id="credit_cards">
+        <img src="assets/img/visa.jpg" id="visa">
+        <img src="assets/img/mastercard.jpg" id="mastercard">
+        <img src="assets/img/amex.jpg" id="amex">
+      </div>
+      <div class="form-group"
+        id="pay-now">
+        <button [disabled]="!creditCardForm.valid" type="button" class="btn btn-default" id="confirm-purchase" (click)="addPaymentOption()">Confirm</button>
+      </div>
+    </form>
+  </div>
+</div>
